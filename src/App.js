@@ -1,24 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import { Container } from 'react-bootstrap';
+import InputForm from './components/inputform/inputform';
+import Grid from './components/grid/grid';
+import { useState } from 'react';
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState('');
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <Container>
+          <InputForm doSearch={setSearchTerm} />
+          <Grid searchValue={searchTerm} />
+        </Container>
+      </div>
   );
 }
 
